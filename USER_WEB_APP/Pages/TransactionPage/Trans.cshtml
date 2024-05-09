@@ -1,0 +1,102 @@
+﻿@page
+@using BusinessObject.Models;
+@model USER_WEB_APP.Pages.TransactionPage.Trans
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col" style="margin: 20px 20px 10px 20px;">
+            <h2>Wallet</h2>
+            <div class="text-muted">Tracking your money</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="d-flex justify-content-between" style="margin: 20px 20px 10px 20px;">
+
+                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" @(Model.IncomeCheck ? "" : "checked") />
+                    <label class="btn btn-outline-success" for="btnradio1" onclick="location.href = './trans'">
+                        <i class="fal fa-sack-dollar"></i>
+                        <span>Spending</span>
+                    </label>
+
+                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" @(Model.IncomeCheck ? "checked" : "")>
+                    <label class="btn btn-outline-success" for="btnradio2" onclick="location.href = './trans?IncomeCheck=true'">
+                        <i class="fal fa-hand-holding-usd"></i>
+                        <span>Income</span>
+                    </label>
+                </div>
+                <div class="d-flex gap-3">
+                    <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#recordModal" onclick="updateModal()">
+                        <i class="fal fa-plus"></i>
+                    </a>
+                    <a class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#catesModal">
+                        <i class="fal fa-list"></i>
+                        <span>Manage category</span>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-8">
+            <div class="shadow p-3 border rounded-4" style="background-color: white; margin: 10px 10px 20px 20px; padding-bottom: 1rem;">
+                <div class="d-flex justify-content-between" style="padding: 0 1rem; margin-top: 2rem;">
+                    <h3 style="font-weight: 600;">Transaction</h3>
+                    <h5>
+                        <span>Total: </span>
+                        
+                    </h5>
+
+                </div>
+
+                
+
+
+            </div>
+        </div>
+        <div class="col-4">
+            <div class=" shadow p-3 border rounded-4" style="margin: 10px 20px 20px 10px; background-color: white">
+                <canvas id="pieChart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+   
+
+
+<!-- Modal for record -->
+<div class="modal fade" id="recordModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">
+                    <div class="d-flex justify-content-between mb-2">
+                        <div class="d-flex gap-3 align-items-center">
+                            <span class="btn btn-success btn-sm cate-icon">
+                                <i class="fal fa-wrench"></i>
+                            </span>
+                            <span style="font-weight: 500;">Adding new transaction</span>
+                        </div>
+                    </div>
+
+                </h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form method="post" id="formxxx">
+            </form>
+        </div>
+    </div>
+</div>
+
+

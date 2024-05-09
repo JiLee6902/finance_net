@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "ADMIN_WEB_APP/1.0.0": {
+        "runtime": {
+          "ADMIN_WEB_APP.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ADMIN_WEB_APP/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

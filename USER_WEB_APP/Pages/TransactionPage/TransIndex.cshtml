@@ -1,0 +1,85 @@
+﻿@page
+@model USER_WEB_APP.Pages.TransactionPage.TransIndexModel
+
+@{
+    ViewData["Title"] = "TransIndex";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>TransIndex</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Transaction[0].Merchant)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Transaction[0].Amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Transaction[0].Notes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Transaction[0].CreateDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Transaction[0].UpdateDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Transaction[0].IsDelete)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Transaction[0].TransactionsDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Transaction[0].Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Transaction[0].User)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Transaction) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Merchant)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Notes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreateDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdateDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsDelete)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TransactionsDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.CategoryType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.DisplayName)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.TransId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.TransId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.TransId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
